@@ -1,17 +1,41 @@
 ---
+import { Links } from "../lib/constants";
+import "../styles/global.css";
+import "@fontsource-variable/inter";
 
+const name = "Vidath Imayuru Weerawala";
+const role = "Software Engineer";
+const bio = "Building thoughtful digital experiences with a focus on simplicity and functional design.";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{name} | Personal Website</title>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>{name}</h1>
+        <p class="subtitle">{role}</p>
+      </header>
+
+      <section>
+        <p class="bio">{bio}</p>
+      </section>
+
+      <footer class="socials">
+        <a href={Links.github} target="_blank" class="social-link">Github</a>
+        <a href={Links.linkedin} target="_blank" class="social-link">LinkedIn</a>
+        <a href={Links.instagram} target="_blank" class="social-link">Instagram</a>
+        <a href="/downloads/cv.pdf" class="social-link cv-link">
+          Download CV
+        </a>
+      </footer>
+    </main>
+  </body>
 </html>
