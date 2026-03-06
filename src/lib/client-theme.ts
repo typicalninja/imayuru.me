@@ -7,11 +7,9 @@ const rootElement = document.documentElement;
 function toggleTheme() {
   if (rootElement.classList.contains("dark")) {
     rootElement.classList.remove("dark");
-    rootElement.setAttribute("data-theme", "light");
     localStorage.setItem("theme", "light");
   } else {
     rootElement.classList.add("dark");
-    rootElement.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
   }
 }
