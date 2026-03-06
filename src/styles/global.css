@@ -95,3 +95,12 @@ html:not(.dark) .theme-dark-toggle-icon {
 .dark .theme-light-toggle-icon {
   display: none;
 }
+
+hr {
+ margin-block: 1rem;
+}
+
+footer {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}

@@ -5,6 +5,7 @@ import "../styles/global.css";
 
 import "@fontsource-variable/inter";
 import Head from "../components/Head.astro";
+import HomeFooter from "../components/HomeFooter.astro";
 
 const name = "Vidath Imayuru Weerawala";
 const role = "Software Engineer";
@@ -32,7 +33,7 @@ const bio = "Building thoughtful digital experiences with a focus on minimal and
         <p class="bio">{bio}</p>
       </section>
 
-      <footer class="socials">
+      <div class="socials">
         <a href="/downloads/cv.pdf" class="social-link cv-link">
           Download CV
         </a>
@@ -42,7 +43,10 @@ const bio = "Building thoughtful digital experiences with a focus on minimal and
         <a href={Links.linkedin} target="_blank" class="social-link">
           LinkedIn
         </a>
-      </footer>
+      </div>
+
+      <hr />
+      <HomeFooter />
     </main>
     <script src="../lib/client-theme.ts" />
     <script>
