@@ -1,12 +1,13 @@
 ---
 import { Links } from "../lib/constants";
+import { Sun, Moon } from "@lucide/astro";
 import "../styles/global.css";
+
 import "@fontsource-variable/inter";
 
 const name = "Vidath Imayuru Weerawala";
 const role = "Software Engineer";
-const bio =
-  "Building thoughtful digital experiences with a focus on minimal and functional design.";
+const bio = "Building thoughtful digital experiences with a focus on minimal and functional design.";
 ---
 
 <html lang="en">
@@ -17,8 +18,28 @@ const bio =
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{name} | Personal Website</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+    
+      if (theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
   </head>
   <body>
+    <button id="themeToggle" class="small ghost theme-toggle" aria-label="Toggle theme mode">
+      <Sun class="theme-light-toggle-icon" />
+      <Moon class="theme-dark-toggle-icon" />
+    </button>
+
     <main>
       <header class="intro">
         <h1>{name}</h1>
@@ -34,9 +55,13 @@ const bio =
           Download CV
         </a>
         <a href={Links.github} target="_blank" class="social-link">Github</a>
-        <a href={Links.linkedin} target="_blank" class="social-link">LinkedIn</a
-        >
+        <a href={Links.linkedin} target="_blank" class="social-link">LinkedIn</a>
       </footer>
     </main>
+    <script src="../lib/client-theme.ts" />
+    <script>
+      import '@knadh/oat/oat.min.css';
+      import '@knadh/oat/oat.min.js';
+    </script>
   </body>
 </html>
