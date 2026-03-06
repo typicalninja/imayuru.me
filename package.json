@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
     "@fontsource/lavishly-yours": "^5.2.8",
+    "@lucide/astro": "^0.577.0",
     "astro": "^5.17.1"
   },
   "devDependencies": {
