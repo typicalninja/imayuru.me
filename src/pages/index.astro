@@ -4,6 +4,7 @@ import { Sun, Moon } from "@lucide/astro";
 import "../styles/global.css";
 
 import "@fontsource-variable/inter";
+import Head from "../components/Head.astro";
 
 const name = "Vidath Imayuru Weerawala";
 const role = "Software Engineer";
@@ -12,11 +13,7 @@ const bio = "Building thoughtful digital experiences with a focus on minimal and
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <Head />
     <title>{name} | Personal Website</title>
   </head>
   <body>
