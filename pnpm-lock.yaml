@@ -14,6 +14,9 @@ importers:
       '@fontsource/lavishly-yours':
         specifier: ^5.2.8
         version: 5.2.8
+      '@knadh/oat':
+        specifier: ^0.4.1
+        version: 0.4.1
       '@lucide/astro':
         specifier: ^0.577.0
         version: 0.577.0(astro@5.17.1(rollup@4.57.1)(typescript@5.9.3))
@@ -369,6 +372,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@knadh/oat@0.4.1':
+    resolution: {integrity: sha512-Cdpuy1/828ICY5A9mjGYbDszt3tE4OiS0kcbjkHmBRwtFGZ/4oKA0cNkqJEgyNGdabhMlfiGTvKEflKMaax8mA==}
 
   '@lucide/astro@0.577.0':
     resolution: {integrity: sha512-xZcdx+MyYXY74cBzFxr9N49SlofbGjCVD9GxJZcJA40PJvJSLWSeJpD9bgKFcZfFxf1QXkEYaR6BnCS+0lek8Q==}
@@ -1762,6 +1768,8 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@knadh/oat@0.4.1': {}
 
   '@lucide/astro@0.577.0(astro@5.17.1(rollup@4.57.1)(typescript@5.9.3))':
     dependencies:
