@@ -1,0 +1,66 @@
+---
+import { ArrowLeft, Download, Eye } from "@lucide/astro";
+import CenteredLayout from "../layout/CenteredLayout.astro";
+
+const variants = [
+  {
+    name: "ATS Friendly - One Column",
+    link: "/downloads/one_column_ats_imayuru.pdf",
+  },
+  {
+    name: "Printable - Two Column",
+    link: "/downloads/two_column_print_imayuru.pdf",
+  }
+];
+---
+
+<CenteredLayout>
+  <header class="header">
+    <h1>View CV</h1>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Variant</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        variants.map((variant) => (
+          <tr>
+            <td>{variant.name}</td>
+            <td>
+              <a
+                href={variant.link}
+                class="button small ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Eye size={16} />
+                View
+              </a>
+              <a href={variant.link} class="button small ghost" download>
+                <Download size={16} />
+                Download
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <div>
+    <a href="/" class="button small ghost"> 
+        <ArrowLeft size={16} />
+        Back to Home 
+    </a>
+  </div>
+</CenteredLayout>
+
+<style>
+    table {
+        margin-block: 1.5rem;
+    }
+</style>
