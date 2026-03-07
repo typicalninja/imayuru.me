@@ -1,112 +1,35 @@
 ---
+import "../styles/home.css";
+
 import { Links } from "../lib/constants";
-import { Sun, Moon } from "@lucide/astro";
-import "../styles/global.css";
-      import "@knadh/oat/oat.min.css";
-
-
-import "@fontsource-variable/inter";
-import Head from "../components/Head.astro";
 import HomeFooter from "../components/HomeFooter.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import CenteredLayout from "../layout/CenteredLayout.astro";
 
 const name = "Vidath Imayuru Weerawala";
 const role = "Software Engineer";
-const bio = "Building thoughtful digital experiences with a focus on minimal and functional design.";
+const bio =
+  "Building thoughtful digital experiences with a focus on minimal and functional design.";
 ---
 
-<html lang="en">
-  <head>
-    <Head />
-    <title>{name} | Personal Website</title>
-  </head>
-  <body>
-    <ThemeToggle />
+<CenteredLayout>
+  <header class="intro">
+    <img src="/profile_pic.png" alt={name} class="profile-pic" />
+    <div class="intro-text">
+      <h1 class="name">{name}</h1>
+      <p class="subtitle">{role}</p>
+    </div>
+  </header>
 
-    <main>
-      <header class="intro">
-        <img src="/profile_pic.png" alt={name} class="profile-pic" />
-        <div class="intro-text">
-          <h1 class="name">{name}</h1>
-          <p class="subtitle">{role}</p>
-        </div>
-      </header>
+  <section>
+    <p class="bio">{bio}</p>
+  </section>
 
-      <section>
-        <p class="bio">{bio}</p>
-      </section>
+  <div class="socials">
+    <a href="/downloads/cv.pdf" class="social-link cv-link"> Download CV </a>
+    <a href={Links.github} target="_blank" class="social-link"> Github </a>
+    <a href={Links.linkedin} target="_blank" class="social-link"> LinkedIn </a>
+  </div>
 
-      <div class="socials">
-        <a href="/downloads/cv.pdf" class="social-link cv-link">
-          Download CV
-        </a>
-        <a href={Links.github} target="_blank" class="social-link">
-          Github
-        </a>
-        <a href={Links.linkedin} target="_blank" class="social-link">
-          LinkedIn
-        </a>
-      </div>
-
-      <hr />
-      <HomeFooter />
-    </main>
-    <script>
-      import "@knadh/oat/oat.min.js";
-    </script>
-  </body>
-</html>
-
-<style>
-  .intro {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .profile-pic {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    object-fit: cover;
-  }
-
-  .subtitle {
-    font-size: 0.875rem;
-    color: var(--muted-foreground);
-    margin: 0.25rem 0 0 0;
-  }
-
-  .bio {
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
-  }
-
-  .socials {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .social-link {
-    color: var(--foreground);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    font-size: 0.8125rem;
-  }
-
-  .social-link:hover {
-    color: var(--card-foreground);
-    text-decoration-thickness: 1px;
-  }
-
-  .cv-link {
-    font-weight: 600;
-  }
-
-  hr {
-    margin-block: 1rem;
-  }
-</style>
+  <hr />
+  <HomeFooter />
+</CenteredLayout>

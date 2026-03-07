@@ -1,0 +1,12 @@
+---
+import RootLayout from "./RootLayout.astro";
+import "../styles/centered-layout.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
+---
+
+<RootLayout>
+  <ThemeToggle />
+  <main>
+    <slot />
+  </main>
+</RootLayout>
