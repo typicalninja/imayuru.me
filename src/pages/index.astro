@@ -2,10 +2,13 @@
 import { Links } from "../lib/constants";
 import { Sun, Moon } from "@lucide/astro";
 import "../styles/global.css";
+      import "@knadh/oat/oat.min.css";
+
 
 import "@fontsource-variable/inter";
 import Head from "../components/Head.astro";
 import HomeFooter from "../components/HomeFooter.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 const name = "Vidath Imayuru Weerawala";
 const role = "Software Engineer";
@@ -18,10 +21,7 @@ const bio = "Building thoughtful digital experiences with a focus on minimal and
     <title>{name} | Personal Website</title>
   </head>
   <body>
-    <button id="themeToggle" class="small ghost theme-toggle" aria-label="Toggle theme mode">
-      <Sun class="theme-light-toggle-icon" size={20} />
-      <Moon class="theme-dark-toggle-icon" size={20} />
-    </button>
+    <ThemeToggle />
 
     <main>
       <header class="intro">
@@ -51,10 +51,62 @@ const bio = "Building thoughtful digital experiences with a focus on minimal and
       <hr />
       <HomeFooter />
     </main>
-    <script src="../lib/client-theme.ts" />
     <script>
-      import '@knadh/oat/oat.min.css';
-      import '@knadh/oat/oat.min.js';
+      import "@knadh/oat/oat.min.js";
     </script>
   </body>
 </html>
+
+<style>
+  .intro {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .profile-pic {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    object-fit: cover;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0.25rem 0 0 0;
+  }
+
+  .bio {
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 0.8125rem;
+  }
+
+  .social-link:hover {
+    color: var(--card-foreground);
+    text-decoration-thickness: 1px;
+  }
+
+  .cv-link {
+    font-weight: 600;
+  }
+
+  hr {
+    margin-block: 1rem;
+  }
+</style>

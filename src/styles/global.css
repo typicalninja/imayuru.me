@@ -42,62 +42,10 @@ h1 {
   letter-spacing: 0.05em;
 }
 
-.subtitle {
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
-  margin: 0.25rem 0 1.5rem 0;
-}
-
-.bio {
-  font-size: 0.875rem;
-  margin-bottom: 2rem;
-}
-
-.socials {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.social-link {
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-size: 0.8125rem;
-}
-
-.social-link:hover {
-  color: var(--card-foreground);
-  text-decoration-thickness: 1px;
-}
-
-.cv-link {
-  font-weight: 600;
-}
-
 @media (max-width: 480px) {
   body {
     padding-inline: 2rem;
   }
-}
-
-.theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-}
-
-
-html:not(.dark) .theme-dark-toggle-icon {
-  display: none;
-}
-
-.dark .theme-light-toggle-icon {
-  display: none;
-}
-
-hr {
- margin-block: 1rem;
 }
 
 footer {

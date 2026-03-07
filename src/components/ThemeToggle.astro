@@ -1,0 +1,26 @@
+---
+import { Sun, Moon } from "@lucide/astro";
+---
+
+<button id="themeToggle" class="small ghost theme-toggle" aria-label="Toggle theme mode">
+  <Sun class="theme-light-toggle-icon" size={20} />
+  <Moon class="theme-dark-toggle-icon" size={20} />
+</button>
+
+<style>
+  .theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  :global(html:not(.dark)) .theme-dark-toggle-icon {
+    display: none;
+  }
+
+  :global(.dark) .theme-light-toggle-icon {
+    display: none;
+  }
+</style>
+
+<script src="../lib/client-theme.ts"></script>
