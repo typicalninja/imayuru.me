@@ -30,22 +30,7 @@
   flex-wrap: wrap;
 }
 
-.social-link {
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-size: 0.8125rem;
-}
-
-.social-link:hover {
-  color: var(--card-foreground);
-  text-decoration-thickness: 1px;
-}
 
 .cv-link {
   font-weight: 600;
-}
-
-hr {
-  margin-block: 1rem;
 }

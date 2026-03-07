@@ -1,15 +1,17 @@
 ---
 import RootLayout from "./RootLayout.astro";
 import "../styles/centered-layout.css";
-import ThemeToggle from "../components/ThemeToggle.astro";
 import CenteredFooter from "../components/CenteredFooter.astro";
+import CenteredHeader from "../components/CenteredHeader.astro";
 ---
 
 <RootLayout>
-  <ThemeToggle />
+  <CenteredHeader />
   <main>
-    <slot />
-    <hr />
-    <CenteredFooter />
+    <div>
+      <slot />
+      <hr />
+      <CenteredFooter />
+    </div>
   </main>
 </RootLayout>
