@@ -18,18 +18,28 @@ body {
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
-
 
 ::selection {
   background-color: var(--primary);
   color: var(--primary-foreground);
 }
 
-
 @media (max-width: 480px) {
   body {
     padding-inline: 2rem;
   }
+}
+
+a {
+  color: var(--foreground);
+  text-underline-offset: 3px;
+  font-size: 0.875rem;
+}
+
+a:hover {
+  color: var(--accent-foreground);
 }
