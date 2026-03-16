@@ -3,29 +3,136 @@ import "../styles/home.css";
 
 import { Links } from "../lib/constants";
 import CenteredLayout from "../layout/CenteredLayout.astro";
+import { ArrowUpRight, Download, Github, Linkedin } from "@lucide/astro";
 
-const name = "Vidath Imayuru Weerawala";
-const role = "Software Engineer";
+const name = "Vidath Imayuru";
+const role = "Software Engineer & Open Source Enthusiast";
 const bio =
-  "Building thoughtful digital experiences with a focus on minimal and functional design.";
+  "I design and build thoughtful digital experiences — bridging user-centric design with clean, functional code.";
+
+const education = [
+  {
+    degree: "BSc (Hons) in Computer Science",
+    school: "University of Westminster",
+    period: "2024 – present",
+  },
+  {
+    degree: "Higher Education",
+    school: "IIT - Informatics Institute of Technology",
+    period: "2022 – 2024",
+  },
+];
+
+const projects = [
+  {
+    name: "Disbot.js",
+    description:
+      "A powerful, modular Discord bot framework for building scalable bots with ease.",
+    tags: ["Node.js", "TypeScript", "Discord API"],
+    link: `${Links.github}/disbot.js`,
+  },
+  {
+    name: "Maqs",
+    description:
+      "A lightweight message queue system designed for simplicity and speed.",
+    tags: ["TypeScript", "Messaging", "Backend"],
+    link: `${Links.github}/maqs`,
+  },
+  {
+    name: "Audic",
+    description:
+      "Cross-platform audio playback library for Node.js with a clean API.",
+    tags: ["Node.js", "Audio", "Cross-platform"],
+    link: `${Links.github}/audic`,
+  },
+  {
+    name: "Kdash",
+    description:
+      "A minimal dashboard UI starter with a focus on developer experience.",
+    tags: ["React", "UI", "Dashboard"],
+    link: `${Links.github}/kdash`,
+  },
+];
 ---
 
 <CenteredLayout>
-  <header class="intro">
-    <img src="/profile_pic.png" alt={name} class="profile-pic" />
-    <div class="intro-text">
-      <h1 class="name">{name}</h1>
-      <p class="subtitle">{role}</p>
-    </div>
-  </header>
+  <section class="hero">
+    <p class="hero-greeting">Hello, I'm</p>
+    <h1 class="hero-name">{name}</h1>
+    <p class="hero-role">{role}</p>
+    <p class="hero-bio">{bio}</p>
 
-  <section>
-    <p class="bio">{bio}</p>
+    <div class="cta-row">
+      <a href="/download-cv" class="button primary">
+        <Download size={16} />
+        Download CV
+      </a>
+      <a
+        href={Links.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-icon-link"
+        aria-label="GitHub"
+      >
+        <Github size={18} />
+      </a>
+      <a
+        href={Links.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-icon-link"
+        aria-label="LinkedIn"
+      >
+        <Linkedin size={18} />
+      </a>
+    </div>
   </section>
 
-  <div class="socials">
-    <a href="/download-cv" class="social-link cv-link"> Download CV </a>
-    <a href={Links.github} target="_blank" class="social-link"> Github </a>
-    <a href={Links.linkedin} target="_blank" class="social-link"> LinkedIn </a>
-  </div>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <p class="section-label">Education</p>
+    <div class="education-list">
+      {
+        education.map((edu) => (
+          <div class="education-item">
+            <div class="edu-main">
+              <p class="edu-degree">{edu.degree}</p>
+              <p class="edu-school">{edu.school}</p>
+            </div>
+            <span class="edu-period">{edu.period}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section class="section">
+    <p class="section-label">Selected Projects</p>
+    <div class="projects-grid">
+      {
+        projects.map((project) => (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card"
+          >
+            <div class="project-card-header">
+              <p class="project-name">{project.name}</p>
+              <ArrowUpRight size={16} class="project-arrow" />
+            </div>
+            <p class="project-desc">{project.description}</p>
+            <div class="project-tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </CenteredLayout>
