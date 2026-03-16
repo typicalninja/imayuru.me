@@ -8,18 +8,18 @@ import { ArrowUpRight, Download, Github, Linkedin } from "@lucide/astro";
 const name = "Vidath Imayuru";
 const role = "Software Engineer & Open Source Enthusiast";
 const bio =
-  "I design and build thoughtful digital experiences — bridging user-centric design with clean, functional code.";
+  "I design and build thoughtful digital experiences, bridging user-centric design with clean, functional code.";
 
 const education = [
   {
     degree: "BSc (Hons) in Computer Science",
     school: "University of Westminster",
-    period: "2024 – present",
+    period: "2024 - present",
   },
   {
     degree: "Higher Education",
     school: "IIT - Informatics Institute of Technology",
-    period: "2022 – 2024",
+    period: "2023 - 2024",
   },
 ];
 
@@ -57,7 +57,7 @@ const projects = [
 
 <CenteredLayout>
   <section class="hero">
-    <p class="hero-greeting">Hello, I'm</p>
+    <p class="hero-greeting">👋🏻 Hello, I'm</p>
     <h1 class="hero-name">{name}</h1>
     <p class="hero-role">{role}</p>
     <p class="hero-bio">{bio}</p>
@@ -110,7 +110,7 @@ const projects = [
   <hr class="section-divider" />
 
   <section class="section">
-    <p class="section-label">Selected Projects</p>
+    <p class="section-label">Featured Projects</p>
     <div class="projects-grid">
       {
         projects.map((project) => (
