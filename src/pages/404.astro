@@ -1,0 +1,23 @@
+---
+import "../styles/404.css";
+import RootLayout from "../layout/RootLayout.astro";
+import { ArrowLeft } from "@lucide/astro";
+---
+
+<RootLayout title="Page Not Found">
+  <main class="not-found">
+    <div class="not-found-content">
+      <div class="glitch-wrapper">
+        <span class="error-code">404</span>
+      </div>
+      <p class="not-found-label">Page not found</p>
+      <p class="not-found-desc">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <a href="/" class="button primary">
+        <ArrowLeft size={16} />
+        Back to Home
+      </a>
+    </div>
+  </main>
+</RootLayout>
