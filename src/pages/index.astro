@@ -91,15 +91,19 @@ const projects = [
 
   <section class="section">
     <p class="section-label">Education</p>
-    <div class="education-list">
+    <div class="timeline">
       {
-        education.map((edu) => (
-          <div class="education-item">
-            <div class="edu-main">
+        education.map((edu, i) => (
+          <div class="timeline-item">
+            <div class="timeline-track">
+              <span class="timeline-dot" />
+              {i < education.length - 1 && <span class="timeline-line" />}
+            </div>
+            <div class="timeline-content">
+              <span class="edu-period">{edu.period}</span>
               <p class="edu-degree">{edu.degree}</p>
               <p class="edu-school">{edu.school}</p>
             </div>
-            <span class="edu-period">{edu.period}</span>
           </div>
         ))
       }
