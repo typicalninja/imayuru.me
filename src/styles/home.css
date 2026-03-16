@@ -1,5 +1,5 @@
 .hero {
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -154,7 +154,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -165,7 +165,7 @@
 .project-card {
   display: flex;
   flex-direction: column;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
   background: var(--card);
   text-decoration: none;
   transition: background 0.25s ease;
@@ -228,7 +228,6 @@
   background: var(--muted);
 }
 
-/* ---------- Animations ---------- */
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -240,7 +239,6 @@
   }
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 600px) {
   .hero {
     padding: 2.5rem 0 2rem;
@@ -253,5 +251,9 @@
 
   .edu-period {
     padding-top: 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
