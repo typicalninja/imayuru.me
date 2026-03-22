@@ -42,7 +42,3 @@ hr {
   border-top: 1px solid var(--border);
   margin: 1rem 0;
 }
-
-@view-transition {
-  navigation: auto;
-}
