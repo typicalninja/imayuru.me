@@ -189,7 +189,6 @@
   padding: 1rem 1.25rem;
   background: var(--card);
   text-decoration: none;
-  transition: background 0.25s ease;
   position: relative;
 }
 
@@ -239,7 +238,7 @@
 .tag {
   font-size: 0.7rem;
   padding: 0.2rem 0.55rem;
-  background: var(--secondary);
+  background: var(--muted);
   color: var(--muted-foreground);
   border-radius: 4px;
   font-weight: 500;
