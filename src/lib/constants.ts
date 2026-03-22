@@ -3,4 +3,6 @@ export const Links = {
     linkedin: "https://www.linkedin.com/in/imayuru/",
 
     budgitin: "https://budgitin.com",
+
+    site: "https://imayuru.me",
 }
