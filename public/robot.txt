@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imayuru.me/sitemap-index.xml
