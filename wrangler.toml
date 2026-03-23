@@ -1,6 +1,9 @@
-name = "my-astro-app"
+name = "personal-website"
 # Set this to today's date
 compatibility_date = "2026-03-23"
+
+[observability]
+enabled = true
 
 [assets]
 directory = "./dist"
