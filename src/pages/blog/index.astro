@@ -1,0 +1,162 @@
+---
+import BlogLayout from "../../layout/BlogLayout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+
+// Sort by publishedAt descending
+const sorted = allPosts.sort(
+  (a, b) =>
+    new Date(b.data.publishedAt).getTime() -
+    new Date(a.data.publishedAt).getTime()
+);
+
+// Group posts by year
+const grouped: Record<string, typeof sorted> = {};
+for (const post of sorted) {
+  const year = new Date(post.data.publishedAt).getFullYear().toString();
+  if (!grouped[year]) grouped[year] = [];
+  grouped[year].push(post);
+}
+
+const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
+
+const isEmpty = sorted.length === 0;
+---
+
+<BlogLayout title="Blog — Vidath Imayuru">
+  <header class="blog-list-header">
+    <h1>Archive</h1>
+    <p class="blog-list-subtitle">
+      Thoughts on software, design, and the craft of building things.
+    </p>
+  </header>
+
+  {
+    isEmpty ? (
+      <div class="empty-state">
+        <p class="empty-text">Nothing here yet — check back soon.</p>
+      </div>
+    ) : (
+      years.map((year) => (
+        <section class="year-group">
+          <p class="year-label">{year}</p>
+          <div class="post-list">
+            {grouped[year].map((post) => (
+              <a href={`/blog/${post.id}`} class="post-row">
+                <time class="post-date">
+                  {new Date(post.data.publishedAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+                <span class="post-title">{post.data.title}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    )
+  }
+</BlogLayout>
+
+<style>
+  .blog-list-header {
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .blog-list-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 420px;
+  }
+
+  /* Year groups */
+  .year-group {
+    margin-bottom: 2rem;
+  }
+
+  .year-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted-foreground);
+    margin: 0 0 0.75rem 0;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Post rows */
+  .post-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.5rem 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  .post-row:hover {
+    background: var(--secondary);
+  }
+
+  .post-date {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    min-width: 52px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .post-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--foreground);
+    transition: color 0.2s ease;
+  }
+
+  .post-row:hover .post-title {
+    color: var(--primary);
+  }
+
+  /* Empty state */
+  .empty-state {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .empty-text {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+
+  @media (max-width: 480px) {
+    .post-row {
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.4rem 0.5rem;
+    }
+
+    .year-group {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>

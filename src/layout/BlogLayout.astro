@@ -1,0 +1,118 @@
+---
+import RootLayout from "./RootLayout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<RootLayout title={title}>
+  <div class="blog-container">
+    <header class="blog-header">
+      <nav>
+        <a href="/" class="home-link">← Home</a>
+        <div class="right-nav">
+          <a href="/blog">Blog</a>
+          <ThemeToggle />
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="blog-footer">
+      <p>
+        &copy; {new Date().getFullYear()} Vidath Imayuru. 
+        All content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>.
+      </p>
+    </footer>
+  </div>
+</RootLayout>
+
+<style>
+  .blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-header {
+    margin-bottom: 8rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .home-link {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .home-link:hover {
+    color: var(--foreground);
+  }
+
+  .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .right-nav a {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .right-nav a:hover {
+    color: var(--foreground);
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .blog-footer {
+    margin-top: 10rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+  }
+
+  .blog-footer a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .blog-footer a:hover {
+    color: var(--foreground);
+  }
+
+  @media (max-width: 640px) {
+    .blog-header {
+      margin-bottom: 3rem;
+    }
+    
+    .blog-footer {
+      margin-top: 5rem;
+    }
+  }
+</style>
