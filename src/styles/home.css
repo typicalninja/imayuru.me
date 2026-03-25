@@ -244,6 +244,11 @@
   font-weight: 500;
 }
 
+.internship-notice {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
 .project-card:hover .tag {
   background: var(--muted);
 }
