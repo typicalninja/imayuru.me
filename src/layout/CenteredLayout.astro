@@ -1,11 +1,15 @@
 ---
 import RootLayout from "./RootLayout.astro";
+import { type Props } from "../components/Head.astro";
+
 import "../styles/centered-layout.css";
 import CenteredFooter from "../components/CenteredFooter.astro";
 import CenteredHeader from "../components/CenteredHeader.astro";
+
+const props = Astro.props;
 ---
 
-<RootLayout>
+<RootLayout {...props}>
   <CenteredHeader />
   <main>
     <div>
