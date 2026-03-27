@@ -6,3 +6,5 @@ export const Links = {
 
     site: "https://imayuru.me",
 }
+
+export const PersonalEmail = "imayuruweerawala@gmail.com"
