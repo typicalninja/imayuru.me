@@ -1,0 +1,31 @@
+---
+import "../styles/home.css";
+
+import { Links, PersonalEmail } from "../lib/constants";
+import CenteredLayout from "../layout/CenteredLayout.astro";
+import { ArrowLeft } from "@lucide/astro";
+---
+
+<CenteredLayout title="Contact Me">
+  <div>
+    <h1>Contact Me</h1>
+    <p>
+      I'm currently open to internship opportunities and collaborations. Feel
+      free to reach out to me through any of the following channels:
+    </p>
+    <ul>
+      <li>Email: <a href={`mailto:${PersonalEmail}`}>{PersonalEmail}</a></li>
+      <li>
+        LinkedIn: <a
+          href={Links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer">{Links.linkedin}</a
+        >
+      </li>
+    </ul>
+    <a href={"/"} class="button small ghost">
+      <ArrowLeft size={16} />
+      Back Home
+    </a>
+  </div>
+</CenteredLayout>
