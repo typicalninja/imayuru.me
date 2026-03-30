@@ -10,7 +10,7 @@ const variants = [
   {
     name: "Printable - Two Column",
     link: "/downloads/two_column_print_imayuru.pdf",
-  }
+  },
 ];
 ---
 
@@ -37,11 +37,17 @@ const variants = [
                 class="button small ghost"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event={`view_cv - ${variant.name.toLowerCase()}`}
               >
                 <Eye size={16} />
                 View
               </a>
-              <a href={variant.link} class="button small ghost" download>
+              <a
+                href={variant.link}
+                class="button small ghost"
+                download
+                data-umami-event={`download_cv - ${variant.name.toLowerCase()}`}
+              >
                 <Download size={16} />
                 Download
               </a>
@@ -52,15 +58,15 @@ const variants = [
     </tbody>
   </table>
   <div>
-    <a href="/" class="button small ghost"> 
-        <ArrowLeft size={16} />
-        Back to Home 
+    <a href="/" class="button small ghost">
+      <ArrowLeft size={16} />
+      Back to Home
     </a>
   </div>
 </CenteredLayout>
 
 <style>
-    table {
-        margin-block: 1.5rem;
-    }
+  table {
+    margin-block: 1.5rem;
+  }
 </style>
