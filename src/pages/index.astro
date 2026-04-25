@@ -1,4 +1,8 @@
 ---
+// page specific fonts
+import "@fontsource/instrument-serif";
+import "@fontsource/ibm-plex-mono";
+
 import "../styles/home.css";
 
 import { Links } from "../lib/constants";
@@ -6,6 +10,8 @@ import CenteredLayout from "../layout/CenteredLayout.astro";
 import { ArrowUpRight, Download, Github, Linkedin } from "@lucide/astro";
 
 const name = "Vidath Imayuru";
+const firstName = "Vidath";
+const lastName = "Imayuru";
 const role = "Software Engineer & Open Source Enthusiast";
 const bio =
   "I design and build thoughtful digital experiences, bridging user-centric design with clean, functional code.";
@@ -29,118 +35,131 @@ const projects = [
     description: "Your money, intelligently managed.",
     tags: ["NextJS", "TypeScript", "Backend Engineering"],
     link: Links.budgitin,
+    index: "01",
   },
   {
     name: "google-sr",
-    description:
-      "JavaScript / TypeScript tools to fetch Google search results.",
+    description: "JavaScript / TypeScript tools to fetch Google search results.",
     tags: ["TypeScript", "Web Scraping"],
     link: `${Links.github}/google-sr`,
+    index: "02",
   },
   {
     name: "ai-commit-helper",
-    description:
-      "CLI tool to generate git commit messages from git staged files",
+    description: "CLI tool to generate git commit messages from git staged files",
     tags: ["NodeJS", "TypeScript", "CLI"],
     link: `${Links.github}/ai-commit-helper`,
+    index: "03",
   },
   {
     name: "disci",
     description: "NextJS like framework for discord bots (WIP)",
     tags: ["NodeJS", "TypeScript", "Bun"],
     link: `${Links.github}/disci`,
+    index: "04",
   },
 ];
 ---
 
 <CenteredLayout>
+  <div class="notice-bar">
+    <a href="/contact" class="notice-link">
+      <span class="notice-dot" />
+      <span>Open for Internships (1 year) — Remote or On-site in Sri Lanka</span>
+      <ArrowUpRight size={13} class="notice-arrow" />
+    </a>
+  </div>
+
   <section class="hero">
-    <div class="internship-notice">
-      <a class="button outline" href="/contact"> 
-        Open for Internships (1 year) | Remote or On-site in Sri Lanka 
-        <ArrowUpRight size={16} class="notice-arrow" />
-      </a>
-    </div>
-    <p class="hero-greeting">👋🏻 Hello, I'm</p>
-    <h1 class="hero-name">{name}</h1>
-    <p class="hero-role">{role}</p>
-    <p class="hero-bio">{bio}</p>
+    <div class="hero-body">
+      <div class="hero-text">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">
+          <span class="hero-name-first">{firstName}</span>
+          <span class="hero-name-last">{lastName}</span>
+        </h1>
+        <p class="hero-role">{role}</p>
+        <p class="hero-bio">{bio}</p>
 
-    <div class="cta-row">
-      <a href="/download-cv" class="button primary">
-        <Download size={16} />
-        Download CV
-      </a>
-      <a
-        href={Links.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-icon-link"
-        aria-label="GitHub"
-      >
-        <Github size={18} />
-      </a>
-      <a
-        href={Links.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-icon-link"
-        aria-label="LinkedIn"
-      >
-        <Linkedin size={18} />
-      </a>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <section class="section">
-    <p class="section-label">Education</p>
-    <div class="timeline">
-      {
-        education.map((edu, i) => (
-          <div class="timeline-item">
-            <div class="timeline-track">
-              <span class="timeline-dot" />
-              {i < education.length - 1 && <span class="timeline-line" />}
-            </div>
-            <div class="timeline-content">
-              <span class="edu-period">{edu.period}</span>
-              <p class="edu-degree">{edu.degree}</p>
-              <p class="edu-school">{edu.school}</p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <section class="section">
-    <p class="section-label">Featured Projects</p>
-    <div class="projects-grid">
-      {
-        projects.map((project) => (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-card"
-          >
-            <div class="project-card-header">
-              <p class="project-name">{project.name}</p>
-              <ArrowUpRight size={16} class="project-arrow" />
-            </div>
-            <p class="project-desc">{project.description}</p>
-            <div class="project-tags">
-              {project.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
+        <div class="cta-row">
+          <a href="/download-cv" class="button primary">
+            <Download size={14} />
+            Download CV
           </a>
-        ))
-      }
+          <div class="cta-socials">
+            <a href={Links.github} target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <Github size={17} />
+            </a>
+            <a href={Links.linkedin} target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <Linkedin size={17} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <div class="hero-image-wrap">
+          <img
+            src="/profile_square.png"
+            alt={`Portrait of ${name}`}
+            class="hero-image"
+            width="780"
+            height="980"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <p class="section-label">
+      <span class="label-line" />
+      Education
+    </p>
+    <div class="timeline">
+      {education.map((edu, i) => (
+        <div class="timeline-item">
+          <div class="timeline-track">
+            <span class="timeline-dot" />
+            {i < education.length - 1 && <span class="timeline-line" />}
+          </div>
+          <div class="timeline-content">
+            <span class="edu-period">{edu.period}</span>
+            <p class="edu-degree">{edu.degree}</p>
+            <p class="edu-school">{edu.school}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <p class="section-label">
+      <span class="label-line" />
+      Featured Projects
+    </p>
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-card">
+          <div class="project-card-top">
+            <span class="project-index">{project.index}</span>
+            <ArrowUpRight size={15} class="project-arrow" />
+          </div>
+          <p class="project-name">{project.name}</p>
+          <p class="project-desc">{project.description}</p>
+          <div class="project-tags">
+            {project.tags.map((tag) => (
+              <span class="badge">{tag}</span>
+            ))}
+          </div>
+        </a>
+      ))}
     </div>
   </section>
 </CenteredLayout>
